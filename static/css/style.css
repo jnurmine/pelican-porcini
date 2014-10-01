@@ -1,0 +1,573 @@
+/* "I dub thee PORCINI." aka. porcini
+ * Under GNU GPLv2 - see License.txt
+ *
+ * Made by slinky@iki.fi
+ *
+ * See README.Md for more details.
+ */
+
+body {
+    background-color: #fefefc;
+    color: #000;
+    font-family: 'Gudea', Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+    margin: 0;
+    text-align: center;
+}
+
+#header {
+    padding-top: 1em;
+}
+
+.container {
+    height: auto;
+    width: auto;
+}
+
+/* high-visibility black bar for categories etc. */
+.page-title h2 {
+    background: #333;
+    color: #f0f0e0;
+    font-size: 16pt;
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-weight: italic;
+    margin-bottom: 1.5em;
+    padding: 0.25em 0em 0.25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contents {
+    height: auto;
+    width: auto;
+
+    padding-left: auto;
+    padding-right: auto;
+}
+
+/* 
+ * SITE HEADER STUFF
+ */
+#site-title {
+    font-family: 'Fjalla One';
+    font-style: normal;
+    font-weight: 400;
+
+    color: #000;
+    font-size: 36pt;
+    margin: 0px;
+    text-align: center;
+}
+
+#site-title a {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+#site-title a:hover {
+    color: #36bcab;
+}
+
+#site-description {
+    /*background: #f0f0f0;*/
+    background: #eaeae0;
+    border-radius: 0.125em;
+    color: #222;
+    display: inline-block;
+    font-size: 12pt;
+    font-weight: 300;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.5em 1em;
+}
+
+/* 
+ * MENU
+ */
+#menu {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 0.75em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25em;
+    width: auto;
+}
+
+#menu a {
+    color: #666;
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+    margin: 0 0.5em 0 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#menu a:hover {
+    color: #000;
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li {
+    height: 1.25em;
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * FOOTER
+ */
+#footer {
+    clear: both;
+    border-top: 1px solid #ddd;
+    color: #555;
+    font-size: 8pt;
+    height: auto;
+    text-align: center;
+}
+
+#footer a {
+    color: #36bcab;
+    text-decoration: none;
+}
+
+/*
+ * POSTS
+ */
+.post {
+    height: auto;
+    clear: both;
+    position: relative;
+}
+
+.post .main,
+.post .categories,
+.post .tags,
+.post .nav-main,
+.post .archives {
+    line-height: 130%;
+    text-align: justify;
+    max-width: 35em;
+    margin: 0em auto 0em;
+}
+
+.post .main {
+    margin: 2em auto 3em;
+}
+
+.post .archives {
+    margin: 0 auto 1em;
+    text-align: center;
+}
+
+.post .archives .archives-date {
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 16pt;
+    line-height: 16pt;
+    text-transform: uppercase;
+}
+
+/* Only draw separator bar *between* several posts,
+ * i.e. this happens only in posts (several post elements), not in article
+ * (single post) */
+.post:not(:last-child) .main {
+    border-bottom: 0.667em solid #eaeae0;
+    margin-bottom: 1.25em;
+}
+
+/* Separator between categories */
+.post .categories:not(:last-child) {
+    border-bottom: 0.667em solid #eaeae0;
+}
+
+/* Separator between archive titles */
+.post .archives:not(:last-child) {
+    border-bottom: 0.667em solid #eaeae0;
+}
+
+/* Separator betweent tags */
+.post .tags:not(:last-child) {
+    border-bottom: 0.667em solid #eaeae0;
+}
+
+.post .entry-meta {
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 20pt;
+
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+
+    margin-bottom: 1em;
+}
+
+.post .entry-meta a {
+    text-decoration: none;
+}
+
+.post .entry-meta .meta-line {
+    font-size: 12pt;
+    line-height: 12pt;
+    padding-bottom: 4pt;
+}
+
+.post .entry-meta .meta-line a {
+    color: #555;
+}
+
+.post .entry-meta .date-archive {
+    font-size: 16pt;
+    line-height: 16pt;
+}
+
+.entry-title-separator {
+    color: #555;
+    border: 1pt solid #555;
+}
+
+hr {
+    color: #ddd;
+    border: 1pt solid #ddd;
+}
+
+.entry-meta .post-author {
+    color: #aaa;
+    font-size: 12pt;
+    line-height: 12pt;
+    padding-bottom: 8pt;
+}
+.entry-meta .post-author a {
+    color: #777;
+}
+
+.post .entry-meta .cat-links {
+    color: #aaa;
+    font-size: 12pt;
+    line-height: 12pt;
+    padding-bottom: 4pt;
+}
+
+.post .entry-meta .cat-links a {
+    color: #777;
+}
+
+.post .entry-meta .cat-links a:hover {
+    color: #36bcab;
+}
+
+.post .entry-meta .comments {
+    font-size: 16pt;
+    line-height: 16pt;
+}
+.post .entry-meta .comments a {
+    color: #696;
+    text-decoration: none;
+}
+.post .entry-meta .comments a:hover {
+    color: #36ac8b;
+}
+
+.tag-links {
+    display: block;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.tag-links strong {
+    background: #eaeae0;
+    border-radius: 3px;
+    color: #222;
+    font-weight: normal;
+    margin-right: 0.2em;
+    padding: 0.25em 0.5em;
+}
+
+.entry-title {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2em;
+}
+
+.entry-title h2 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0pt;
+}
+
+.entry-title h2 a {
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 28pt;
+}
+
+.entry-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+.entry-title-archive a {
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+}
+
+.entry-title-tags,
+.entry-title-categories {
+    text-align: center;
+}
+
+/*
+ * CONTENT
+ */
+blockquote {
+    background: #fcfcf0;
+    border-left: 0.333em solid #cdcdc4;
+    color: #000;
+    font-family: 'Gudea', Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    padding: 0.3em 1.3em 0.3em 0.667em;
+    margin-left: 1em;
+    margin-right: 1em;
+    line-height: normal;
+    text-align: justify;
+}
+
+code {
+    font-size: 12pt;
+}
+
+/* TODO: get some color highlight? zenburn is a bit too dark for a bright theme
+ * like this, so maybe tweak it to be lighter? */
+pre {
+    background: #f4f8f2;
+    border-left: 0.4em solid #c5d2c3;
+    color: #000;
+    font-family: 'Lekton', Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    padding: 0.75em;
+    text-align: justify;
+    line-height: 1.25em;
+    display: inline-block;
+}
+
+a {
+    color: #000;
+}
+
+.entry-content a {
+    color: #030;
+    text-decoration: none;
+    background-color: #ffffea;
+}
+
+a:hover {
+    color: #36bcab;
+}
+
+b, strong {
+    color: #000;
+}
+
+.entry-content a img {
+    border: 1px solid #cce;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry-content a:hover img {
+    border: 1px solid #000;
+}
+
+/*
+ * TABLE
+ */
+.entry-content table {
+    margin: 0 0 1.25em 0;
+    text-align: left;
+    width: 100%;
+    background: #f8f8f0;
+    border-collapse: collapse;
+}
+
+.entry-content tr th,
+.entry-content thead th {
+    background: #f0f0e0;
+    color: #444444;
+    font-weight: bold;
+    line-height: 1.25em;
+    padding: 0.5em 1.5em;
+    border-right: 1pt solid #e0e0d0;
+}
+
+.entry-content tr th:last-child,
+.entry-content thead th:last-child {
+    border: 0pt;
+}
+
+.entry-content tr td {
+    padding: 0.5em 1.5em;
+    border-right: 1pt solid #eeeede;
+    border-top: 1pt solid #eeeede;
+}
+
+.entry-content tr td:last-child {
+    border-right: 0pt;
+    border-top: 1pt solid #eeeede;
+}
+
+/*
+ * HEADINGS
+ */
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    padding: 0;
+    text-align: left;
+    line-height: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.entry-content h1 {
+    font-size: 20pt;
+    line-height: 20pt;
+    margin: 2em 0 1.25em 0;
+}
+
+.entry-content h2 {
+    font-size: 16pt;
+    line-height: 16pt;
+    margin: 2em 0 1.25em 0;
+}
+
+.entry-content h3 {
+    font-size: 14pt;
+    line-height: 14pt;
+    margin: 2em 0 1.25em 0;
+}
+
+.entry-content h4 {
+    font-size: 14pt;
+    line-height: 14pt;
+    margin: 2em 0 1.25em 0;
+}
+
+.entry-content h5 {
+    font-size: 14pt;
+    line-height: 14pt;
+    margin: 2em 0 1.25em 0;
+}
+
+.entry-content h6 {
+    font-size: 14pt;
+    line-height: 14pt;
+    margin: 2em 0 1.25em 0;
+}
+/* Only h1..h3 make any difference, h4+ looks like h3. */
+
+/* 
+ * NAVIGATION
+ */
+.navigation {
+    clear: both;
+    margin: 0pt;
+    
+    font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+    font-size: 20pt;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding-bottom: 0.75em;
+}
+
+.navigation a {
+    text-decoration: none;
+}
+
+.navigation a .meta-nav {
+    /* XXX the &larr;/&rarr; are not at the vertical middle,
+     * no clue why. ghetto-align them */
+    position: relative;
+    top: -3pt;
+}
+
+.nav-newer {
+    text-align: right;
+}
+div .nav-newer:not(:last-child) {
+    margin-bottom: 0.25em;
+}
+
+.nav-older {
+    text-align: right;
+}
+
+.entry-content blockquote p a {
+    background-color: #ffffd0;
+}
+
+/* General */
+ol ol {
+    list-style: upper-alpha;
+}
+ol ol ol {
+    list-style: lower-roman;
+}
+ul ul, ol ol, ul ol, ol ul {
+    margin-bottom: 0;
+}
+
+/* Use star instead of bullet in lists,
+ * since that's the way I hand-write too. */
+.post ul {
+    list-style: none;
+    padding-left: 1em;
+}
+
+.post ul li {
+    overflow: visible;
+    position: relative;
+    padding-left: 1em;
+}
+
+.post ul li:before {
+    content: '\2736'; /* Six Pointed Black Star */
+    left: 0;
+    font-weight: bold;
+    position: absolute;
+}
+
+/*
+ * IMAGES
+ */
+a img {
+    border: none;
+}
+
+.respond {
+    line-height: 100%;
+    text-align: justify;
+
+    clear: both;
+
+    width: 35em;
+    margin: 0em auto 0em;
+}
+

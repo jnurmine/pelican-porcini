@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; All Categories{% endblock %}
+{% block content_title %}
+<div class="page-title">
+	<h2>All Categories</h2>
+</div>
+{% endblock %}
+{% block content %}
+<div class="post">
+    {% for category, articles in categories %}
+    <div class="categories">
+        <h2 class="entry-title-archive entry-title-categories">
+            <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+        </h2>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

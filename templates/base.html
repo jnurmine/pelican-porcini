@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+	<head>
+		{% block head %}
+		<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+		<meta charset="utf-8" />
+		<link rel="profile" href="http://gmpg.org/xfn/11" />
+		<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+		<link rel='stylesheet' id='lekton-css' href="http://fonts.googleapis.com/css?family=Lekton:400italic,400,700i&subset=latin" type="text/css" media='all'>
+		<link rel='stylesheet' id='fjalla-css' href="http://fonts.googleapis.com/css?family=Fjalla+One:400" type="text/css" media='all'>
+		<link rel='stylesheet' id='gudea-css' href="http://fonts.googleapis.com/css?family=Gudea:400italic,400,700" type="text/css" media='all'>
+
+		<link rel="alternate" type="application/atom+xml"
+		title="{{ SITENAME }} — Flux Atom"
+		href="{{ SITEURL }}/{{ FEED }}" /> 
+		{% if FEED_RSS %}
+		<link rel ="alternate" type="application/rss+xml"
+		title="{{ SITENAME }} — Flux RSS"
+		href="{{ SITEURL }}/{{ FEED_RSS }}" /> 
+		{% endif %}
+		{% if MINT %}
+		<script src="/mint/?js" type="text/javascript"></script>
+		{% endif %}
+		{% endblock head %}
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="header">
+				<img src="{{ SITEURL }}/theme/images/logo.png" alt="logo">
+				<h1 id="site-title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+{% if SITESUBTITLE %}
+				<h2 id="site-description">{{ SITESUBTITLE }}</h2>
+{% endif %}
+			</div>
+
+			<div id="menu">
+                <ul>
+                    <li><a href="/">Blog</a></li>
+                    {% for title, link in MENUITEMS %}
+                        <li><a href="{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
+                    {% for p in PAGES %}
+                        <li{% if p == page %}{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                    {% endfor %}
+                    {% if DISPLAY_CATEGORIES_ON_MENU %}
+                        {% for cat, null in categories %}
+                            <li{% if cat == category %}{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    {% for m in CATEGORIES_SHOWN_ON_MENU %}
+                        {% for cat, null in categories %}
+                            {% if cat == m %}
+                                <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    {% if LINKS %}
+                        {% for name, url in LINKS %}
+                            <li><a href="{{ url }}">{{ name }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+				</ul>
+		</div>
+		
+		<div class="page-title">
+			{% block content_title %}{% endblock %}
+		</div>
+	
+		<div class="contents">
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		<div id="footer">
+			<p>{{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>, theme is called Porcini.' }}</p>
+            {% if GOOGLE_ANALYTICS %}
+                    <script type="text/javascript">
+                            var _gaq = _gaq || [];
+                            _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+                            _gaq.push(['_trackPageview']);
+                            (function() {
+                                    var ga = document.createElement('script'); 
+                                    ga.type = 'text/javascript'; ga.async = true;
+                                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                            })();
+                    </script>
+            {% endif %}
+			{% if DISQUS_SITENAME %}
+				{% include 'disqus_script.html' %}
+			{% endif %}
+		</div>
+	</div>
+	<div style="display:none"></div>
+</body>
+</html>

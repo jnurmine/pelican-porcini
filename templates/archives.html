@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Archives{% endblock %}
+{% block content_title %}
+<div class="page-title">
+    <h2>Archives</h2>
+</div>
+{% endblock %}
+{% block content %}
+<div class="post">
+{% for article in dates %}
+    <div class="archives">
+        <div class="archives-date">{{ article.locale_date }}</div>
+		<h2 class="entry-title-archive">
+		    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </h2>
+	</div>
+{% endfor %}
+</div>
+{% endblock %}

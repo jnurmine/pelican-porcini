@@ -1,0 +1,33 @@
+<div class="post">
+	<div class="main">
+		<div class="entry-title">
+			<h2><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}" rel="bookmark">{{ article.title }}</a></h2>
+        </div>
+        <hr class="entry-title-separator"/>
+        <div class="entry-meta">
+            <div class="meta-line">
+                <a class="date" href="{{ SITEURL }}/{{ article.url }}">{{ article.locale_date }}</a>
+                {% if output_file != "index.html" %}
+                    {% if article.author and not SINGLE_AUTHOR %}
+                        | By <a class="post-author" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+                        | Under <a class="cat-links" href="{{ SITEURL }}/{{ article.category.url }}" title="View all posts in {{ article.category }}" rel="category tag">{{ article.category }}</a>
+                    {% endif %} 
+                {% endif %}
+            </div>
+            {% if DISQUS_SITENAME %}
+                <div class="comments"><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" title="Comments on {{ article.title|striptags }}">Comments</a></div>
+            {% endif %}
+        </div>
+		<div class="entry-content">
+			{{ article.content }}
+        </div>
+        {% if output_file != "index.html" %}
+		{% if article.tags %}
+    		<div class="tag-links"><strong>Tagged</strong>
+    			{% set delimiter = joiner() %}
+    			{% for tag in article.tags|sort %}{{- delimiter() }} <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>{% endfor %}
+    		</div>
+        {% endif %}
+        {% endif %}
+	</div>
+</div>
