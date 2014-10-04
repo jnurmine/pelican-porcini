@@ -17,6 +17,7 @@
         </div>
     </div>
 </div>
+{% set DISQUS_ID = page.title|striptags %}
 {% include 'disqus_embed_script.html'%}
 {% endblock %}
 

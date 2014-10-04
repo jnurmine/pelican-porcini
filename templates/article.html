@@ -3,5 +3,6 @@
 {% block content %}
 
 {% include 'post.html' %}
+{% set DISQUS_ID = article.title|striptags %}
 {% include 'disqus_embed_script.html'%}
 {% endblock %}
