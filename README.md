@@ -52,6 +52,10 @@ widths >= 320 pixels. For most users this should be OK.
 
 A humble plea to all awesome web developers: please create more templates for Pelican!
 
+## Screenshot
+
+![](screenshot.png)
+
 ## Credits
 
 ### Authors
